@@ -1,46 +1,48 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <title>Houssam Azmour · Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio de Houssam Azmour, développeur full-stack et business manager spécialisé dans la location courte durée haut de gamme." />
+  <meta name="description" content="Portfolio de Houssam Azmour, développeur full-stack et Business Manager spécialisé dans la location courte durée haut de gamme." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f5f5f7;
-      --bg-alt: #ffffff;
-      --bg-soft: #f0f2f5;
-      --text: #111827;
-      --muted: #6b7280;
-      --accent: #c59b3c;   /* doré luxe */
-      --accent-soft: rgba(197, 155, 60, 0.08);
-      --border: #e5e7eb;
+      --bg: #020617;
+      --bg-alt: #020617;
+      --bg-card: #020617;
+      --bg-elevated: #020617;
+      --surface: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #facc15; /* doré subtil */
+      --accent-soft: rgba(250, 204, 21, 0.08);
+      --border: #1f2937;
       --radius: 18px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.9);
       --transition: 200ms ease;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #fdfcf9 0, #f5f5f7 40%, #eceef1 100%);
+      font-family: monospace;
+      background:
+        radial-gradient(circle at 0% 0%, #0f172a 0, #020617 40%, #020617 100%);
       color: var(--text);
       line-height: 1.6;
     }
 
     img { max-width: 100%; display: block; }
-
     a { color: inherit; text-decoration: none; }
 
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
+      padding: 1.4rem 1.3rem 3.2rem;
     }
 
     @media (min-width: 1024px) {
@@ -51,16 +53,16 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      background: rgba(245, 245, 247, 0.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+      z-index: 40;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), transparent);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
     }
 
     .nav {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0.75rem 1.25rem;
+      padding: 0.75rem 1.3rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -77,25 +79,26 @@
       width: 40px;
       height: 40px;
       border-radius: 999px;
-      background: radial-gradient(circle at 0 0, var(--accent), #111827);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at 0 0, #facc15, #020617);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #f9fafb;
       font-weight: 700;
       font-size: 0.9rem;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.1em;
+      color: #fefce8;
     }
 
     .logo-text {
       display: flex;
       flex-direction: column;
-      gap: 0.05rem;
+      gap: 0.08rem;
     }
 
     .logo-text strong {
       font-size: 0.95rem;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
@@ -114,7 +117,7 @@
     .nav-links a {
       position: relative;
       color: var(--muted);
-      padding-bottom: 0.2rem;
+      padding-bottom: 0.15rem;
     }
 
     .nav-links a::after {
@@ -129,6 +132,10 @@
       transition: width var(--transition);
     }
 
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
     .nav-links a:hover::after {
       width: 100%;
     }
@@ -136,36 +143,37 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      gap: 0.8rem;
     }
 
-    .btn-outline {
-      padding: 0.5rem 1rem;
+    .btn-nav-secondary {
+      padding: 0.5rem 1.1rem;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 0.85rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.82rem;
       color: var(--muted);
       cursor: pointer;
       transition: var(--transition);
     }
 
-    .btn-outline:hover {
-      border-color: var(--accent);
+    .btn-nav-secondary:hover {
       color: var(--text);
+      border-color: var(--accent);
     }
 
     .btn-nav-primary {
-      padding: 0.5rem 1.1rem;
+      padding: 0.55rem 1.2rem;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg, #f7e0aa, var(--accent));
-      color: #141414;
+      background: linear-gradient(135deg, #facc15, #f97316);
+      color: #0b1120;
       font-size: 0.85rem;
       font-weight: 500;
       cursor: pointer;
-      box-shadow: 0 12px 30px rgba(197, 155, 60, 0.45);
+      box-shadow: 0 14px 32px rgba(250, 204, 21, 0.5);
       transition: var(--transition);
+      white-space: nowrap;
     }
 
     .btn-nav-primary:hover {
@@ -178,8 +186,8 @@
       width: 38px;
       height: 38px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
       justify-content: center;
       align-items: center;
       cursor: pointer;
@@ -192,7 +200,7 @@
       width: 18px;
       height: 2px;
       border-radius: 999px;
-      background: #111827;
+      background: #e5e7eb;
       position: relative;
       transition: var(--transition);
     }
@@ -219,14 +227,14 @@
 
     .nav-mobile {
       display: none;
-      border-top: 1px solid var(--border);
-      background: rgba(245, 245, 247, 0.97);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+      background: rgba(2, 6, 23, 0.98);
     }
 
     .nav-mobile-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0.7rem 1.25rem 1rem;
+      padding: 0.7rem 1.3rem 1rem;
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
@@ -236,8 +244,8 @@
       font-size: 0.9rem;
       padding: 0.55rem 0.7rem;
       border-radius: 0.8rem;
-      background: #ffffff;
-      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
       color: var(--muted);
     }
 
@@ -250,8 +258,7 @@
 
     @media (max-width: 880px) {
       .nav-links { display: none; }
-      .nav-actions { gap: 0.6rem; }
-      .btn-outline { display: none; }
+      .btn-nav-secondary { display: none; }
       .nav-toggle { display: flex; }
     }
 
@@ -261,7 +268,7 @@
       grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
       gap: 2rem;
       align-items: center;
-      padding-top: 2.5rem;
+      padding-top: 2.4rem;
       padding-bottom: 3rem;
     }
 
@@ -274,48 +281,50 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
       padding: 0.25rem 0.7rem;
       border-radius: 999px;
-      background: var(--accent-soft);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.8);
       font-size: 0.78rem;
-      color: var(--accent);
+      color: var(--muted);
       margin-bottom: 1rem;
     }
 
     .eyebrow-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 999px;
-      background: #16a34a;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.22);
     }
 
     .hero-title {
-      font-size: clamp(2.3rem, 3.3vw, 2.9rem);
-      line-height: 1.05;
-      letter-spacing: -0.035em;
+      font-size: clamp(2.3rem, 3.2vw, 2.9rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
       margin-bottom: 0.9rem;
     }
 
     .hero-title span {
-      background: linear-gradient(120deg, #c59b3c, #111827);
+      background: linear-gradient(130deg, #facc15, #22c55e);
       -webkit-background-clip: text;
       color: transparent;
     }
 
     .hero-lead {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       color: var(--muted);
       max-width: 33rem;
       margin-bottom: 1.2rem;
     }
 
-    .hero-lead strong { color: #111827; }
+    .hero-lead strong { color: var(--text); }
 
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.7rem;
       margin-bottom: 1.6rem;
       font-size: 0.8rem;
     }
@@ -323,42 +332,42 @@
     .hero-meta span {
       padding: 0.35rem 0.7rem;
       border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 0.9);
       color: var(--muted);
     }
 
-    .hero-actions-main {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.9rem;
     }
 
     .btn-primary {
-      padding: 0.8rem 1.6rem;
+      padding: 0.8rem 1.7rem;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg, #f7e0aa, var(--accent));
-      color: #141414;
+      background: linear-gradient(135deg, #facc15, #f97316);
+      color: #020617;
       font-size: 0.9rem;
       font-weight: 500;
       cursor: pointer;
-      box-shadow: 0 22px 45px rgba(197, 155, 60, 0.45);
+      box-shadow: 0 22px 52px rgba(250, 204, 21, 0.7);
       transition: var(--transition);
     }
 
     .btn-primary:hover {
-      filter: brightness(1.05);
       transform: translateY(-1px);
+      filter: brightness(1.04);
     }
 
     .btn-ghost {
       padding: 0.8rem 1.3rem;
       border-radius: 999px;
-      border: 1px solid #d1d5db;
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
       color: var(--muted);
+      font-size: 0.9rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -367,61 +376,96 @@
     }
 
     .btn-ghost:hover {
-      border-color: var(--accent);
       color: var(--text);
+      border-color: var(--accent);
     }
 
     .hero-right {
       border-radius: 26px;
-      background: #111827;
-      color: #e5e7eb;
-      overflow: hidden;
+      background: radial-gradient(circle at top, rgba(8, 47, 73, 0.9), #020617 55%);
+      border: 1px solid rgba(15, 23, 42, 0.95);
       box-shadow: var(--shadow-soft);
-      position: relative;
-    }
-
-    .hero-right img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      filter: saturate(1.1) contrast(1.02);
-    }
-
-    .hero-right-content {
-      padding: 1.1rem 1.4rem 1.3rem;
+      overflow: hidden;
       display: grid;
-      gap: 0.4rem;
+      grid-template-rows: 1.2fr auto;
     }
 
-    .hero-tagline {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: #9ca3af;
+    .hero-right-visual {
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-highlight {
-      font-size: 0.92rem;
-      font-weight: 500;
+    .hero-right-visual img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      filter: saturate(1.15) contrast(1.03);
     }
 
-    .hero-mini {
+    .hero-right-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    }
+
+    .hero-right-caption {
+      position: absolute;
+      left: 1rem;
+      bottom: 0.75rem;
+      right: 1rem;
       font-size: 0.8rem;
-      color: #9ca3af;
+      color: #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
     }
 
-    .hero-badges {
+    .hero-right-caption strong {
+      display: block;
+    }
+
+    .hero-right-stats {
+      padding: 0.95rem 1.2rem 1.1rem;
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .hero-right-stats-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.8rem;
+    }
+
+    .hero-right-stats-header h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #e5e7eb;
+    }
+
+    .hero-kpis {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.4rem;
-      font-size: 0.76rem;
+      gap: 0.8rem;
     }
 
-    .hero-badges span {
-      border-radius: 999px;
-      border: 1px solid rgba(156, 163, 175, 0.7);
-      padding: 0.2rem 0.6rem;
+    .kpi {
+      flex: 1 1 90px;
+      min-width: 0;
+    }
+
+    .kpi-value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #facc15;
+    }
+
+    .kpi-label {
+      font-size: 0.72rem;
+      color: #9ca3af;
     }
 
     /* SECTIONS */
@@ -432,141 +476,158 @@
     .section-header {
       display: flex;
       justify-content: space-between;
-      gap: 1.2rem;
       align-items: baseline;
+      gap: 1.2rem;
       margin-bottom: 1.2rem;
     }
 
     .section-title {
-      font-size: 1.05rem;
-      letter-spacing: 0.14em;
+      font-size: 1.02rem;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
     }
 
     .section-subtitle {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--muted);
-      max-width: 24rem;
+      max-width: 25rem;
     }
 
     .section-divider {
       height: 1px;
-      background: linear-gradient(to right, rgba(17, 24, 39, 0.16), transparent);
+      background: linear-gradient(to right, rgba(148, 163, 184, 0.7), transparent);
       margin-bottom: 1.4rem;
+      opacity: 0.9;
     }
 
     /* SLIDER HEBERGEMENTS */
-    .properties-wrapper {
+    .properties-shell {
       border-radius: var(--radius);
-      background: #ffffff;
       border: 1px solid var(--border);
-      padding: 1.1rem 1.1rem 1.3rem;
+      background: radial-gradient(circle at top left, rgba(8, 47, 73, 0.7), #020617);
       box-shadow: var(--shadow-soft);
+      padding: 1.2rem 1.1rem 1.25rem;
     }
 
-    .properties-top {
+    .properties-header {
       display: flex;
       justify-content: space-between;
+      gap: 1rem;
       align-items: center;
       margin-bottom: 0.9rem;
-      gap: 0.8rem;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
     }
 
-    .properties-top span {
+    .properties-header span {
       color: var(--muted);
     }
 
     .slider-properties {
       position: relative;
       overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      background: #020617;
     }
 
-    .slider-track {
-      display: flex;
-      transition: transform 300ms ease;
+    .prop-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 260ms ease;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     }
 
-    .property-card {
-      min-width: 280px;
-      max-width: 320px;
-      margin-right: 1rem;
-      border-radius: 16px;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+    .prop-slide.active {
+      opacity: 1;
     }
 
-    .property-image {
+    @media (max-width: 780px) {
+      .prop-slide {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .prop-image {
       position: relative;
-      height: 180px;
+      overflow: hidden;
     }
 
-    .property-image img {
+    .prop-image img {
       width: 100%;
-      height: 100%;
+      height: 220px;
       object-fit: cover;
     }
 
-    .property-badge {
+    .prop-badge {
       position: absolute;
-      left: 0.7rem;
-      top: 0.7rem;
-      padding: 0.2rem 0.6rem;
+      left: 0.9rem;
+      top: 0.8rem;
+      padding: 0.22rem 0.7rem;
       border-radius: 999px;
       font-size: 0.72rem;
-      background: rgba(17, 24, 39, 0.82);
-      color: #f9fafb;
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      border: 1px solid rgba(55, 65, 81, 0.9);
     }
 
-    .property-body {
-      padding: 0.75rem 0.9rem 0.9rem;
-      font-size: 0.82rem;
+    .prop-body {
+      padding: 0.95rem 1.05rem 1.05rem;
+      font-size: 0.84rem;
       display: grid;
-      gap: 0.25rem;
+      gap: 0.4rem;
+      align-content: center;
     }
 
-    .property-title {
+    .prop-title {
+      font-size: 0.98rem;
       font-weight: 600;
     }
 
-    .property-location {
-      color: var(--muted);
+    .prop-location {
       font-size: 0.8rem;
-    }
-
-    .property-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.78rem;
-      margin-top: 0.25rem;
       color: var(--muted);
     }
 
-    .property-meta strong {
-      color: #111827;
-      font-weight: 600;
+    .prop-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
     }
 
-    .slider-controls-prop {
+    .prop-meta span strong {
+      color: #e5e7eb;
+    }
+
+    .prop-note {
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+
+    .prop-controls {
+      position: absolute;
+      inset: 0.7rem 0.65rem auto auto;
       display: flex;
-      gap: 0.45rem;
+      gap: 0.35rem;
+      justify-content: flex-end;
     }
 
     .btn-circle {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 999px;
-      border: 1px solid #d1d5db;
-      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--muted);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       transition: var(--transition);
     }
 
@@ -575,29 +636,23 @@
       color: var(--accent);
     }
 
-    .slider-dots {
+    .prop-dots {
       display: flex;
-      gap: 0.3rem;
-      margin-top: 0.8rem;
       justify-content: center;
+      gap: 0.35rem;
+      padding-top: 0.7rem;
     }
 
-    .slider-dot {
+    .prop-dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: #d1d5db;
+      background: rgba(148, 163, 184, 0.7);
     }
 
-    .slider-dot.active {
+    .prop-dot.active {
       width: 16px;
       background: var(--accent);
-    }
-
-    @media (max-width: 720px) {
-      .property-card {
-        min-width: 85%;
-      }
     }
 
     /* EXPERIENCE CARDS */
@@ -610,26 +665,27 @@
     @media (max-width: 1024px) {
       .exp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+
     @media (max-width: 720px) {
       .exp-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
     .exp-card {
       border-radius: var(--radius);
-      background: #ffffff;
       border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.98);
       padding: 1rem;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
-      display: grid;
-      gap: 0.4rem;
       font-size: 0.84rem;
+      display: grid;
+      gap: 0.45rem;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.7);
       transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     }
 
     .exp-card:hover {
       transform: translateY(-3px);
       border-color: var(--accent);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.95);
     }
 
     .exp-role {
@@ -639,6 +695,11 @@
 
     .exp-company {
       font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .exp-period {
+      font-size: 0.78rem;
       color: var(--muted);
     }
 
@@ -653,12 +714,9 @@
       font-size: 0.74rem;
       padding: 0.15rem 0.55rem;
       border-radius: 999px;
-      background: #f3f4f6;
-    }
-
-    .exp-period {
-      font-size: 0.78rem;
-      color: var(--muted);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
     }
 
     /* SKILLS */
@@ -668,17 +726,18 @@
       gap: 1rem;
     }
 
-    @media (max-width: 880px) {
+    @media (max-width: 960px) {
       .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+
     @media (max-width: 640px) {
       .skills-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
     .skill-block {
       border-radius: var(--radius);
-      background: #ffffff;
       border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.98);
       padding: 0.9rem;
       font-size: 0.84rem;
     }
@@ -699,7 +758,9 @@
       font-size: 0.76rem;
       padding: 0.2rem 0.55rem;
       border-radius: 999px;
-      background: #f3f4f6;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
     }
 
     /* PROJECTS */
@@ -712,26 +773,28 @@
     @media (max-width: 1024px) {
       .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+
     @media (max-width: 720px) {
       .projects-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
     .project-card {
       border-radius: var(--radius);
-      background: #ffffff;
       border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.98);
       padding: 1rem;
       font-size: 0.84rem;
       display: grid;
       gap: 0.4rem;
-      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
       cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
     }
 
     .project-card:hover {
       transform: translateY(-3px);
       border-color: var(--accent);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
     }
 
     .project-title {
@@ -758,14 +821,16 @@
     /* CONTACT */
     .contact {
       border-radius: 24px;
-      background: radial-gradient(circle at top left, #fef3c7, #f9fafb);
-      border: 1px solid #facc15;
-      padding: 1.6rem 1.4rem 1.4rem;
+      border: 1px solid rgba(250, 204, 21, 0.3);
+      background:
+        radial-gradient(circle at top left, rgba(250, 204, 21, 0.12), transparent),
+        radial-gradient(circle at bottom right, rgba(8, 47, 73, 0.9), #020617);
+      padding: 1.6rem 1.4rem 1.5rem;
       margin-top: 3.4rem;
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 1.6rem;
-      box-shadow: 0 18px 45px rgba(202, 138, 4, 0.25);
+      box-shadow: var(--shadow-soft);
     }
 
     @media (max-width: 880px) {
@@ -773,33 +838,34 @@
     }
 
     .contact h2 {
-      font-size: 1.25rem;
+      font-size: 1.18rem;
       margin-bottom: 0.5rem;
     }
 
     .contact p {
       font-size: 0.9rem;
-      color: #4b5563;
+      color: var(--muted);
       margin-bottom: 0.9rem;
     }
 
     .contact-info {
       font-size: 0.84rem;
-      color: #374151;
+      color: var(--muted);
     }
 
     .contact-info div + div { margin-top: 0.35rem; }
 
     .contact-info span {
       font-weight: 600;
-      margin-right: 0.25rem;
+      color: var(--text);
+      margin-right: 0.3rem;
     }
 
     .contact-form {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 0.9rem;
-      border: 1px solid #fbbf24;
+      border-radius: 18px;
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      background: rgba(2, 6, 23, 0.96);
+      padding: 0.95rem;
       display: grid;
       gap: 0.7rem;
       font-size: 0.84rem;
@@ -812,24 +878,25 @@
 
     label {
       font-size: 0.8rem;
-      color: #374151;
+      color: var(--muted);
     }
 
     input, textarea {
       border-radius: 10px;
-      border: 1px solid #e5e7eb;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       padding: 0.5rem 0.6rem;
       font-size: 0.84rem;
+      color: var(--text);
       outline: none;
       transition: var(--transition);
+      resize: vertical;
     }
 
     input:focus, textarea:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(197, 155, 60, 0.4);
+      box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.6);
     }
-
-    textarea { resize: vertical; }
 
     footer {
       margin-top: 2.2rem;
@@ -843,7 +910,7 @@
   <header>
     <nav class="nav">
       <div class="nav-left">
-        <div class="logo-mark"><img src="mon-logo.png" alt=""></div>
+        <div class="logo-mark">HA</div>
         <div class="logo-text">
           <strong>HOUSSAM AZMOUR</strong>
           <span>Full-Stack · Business Manager</span>
@@ -859,11 +926,8 @@
       </div>
 
       <div class="nav-actions">
-        <button class="btn-outline" onclick="document.getElementById('hebergements').scrollIntoView({behavior:'smooth'})">
+        <button class="btn-nav-secondary" onclick="document.getElementById('hebergements').scrollIntoView({behavior:'smooth'})">
           Voir les biens
-        </button>
-        <button class="btn-nav-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          Discuter d’un projet
         </button>
         <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu">
           <span></span>
@@ -891,24 +955,23 @@
           Location courte durée haut de gamme · Maroc
         </div>
         <h1 class="hero-title">
-          Je conçois des outils <span>web & pricing</span>
-          pour valoriser vos palais, villas & appartements.
+          Je conçois des solutions <span>web & pricing</span> au service de vos palais, villas & appartements.
         </h1>
         <p class="hero-lead">
-          Je suis <strong>Houssam Azmour</strong>,
-          développeur full-stack (React, Next.js, Laravel, Symfony, Oracle)
-          et <strong>Business Manager</strong> en charge d’un portefeuille
-          d’hébergements haut de gamme sur <strong>Marrakech, Rabat & Casablanca</strong>.
+          Je suis <strong>Houssam Azmour</strong>, développeur full-stack
+          (React, Next.js, Laravel, Symfony, Oracle) et
+          <strong>Business Manager</strong> pour un portefeuille d’hébergements premium
+          sur <strong>Marrakech, Rabat & Casablanca</strong>.
         </p>
 
         <div class="hero-meta">
-          <span>Business Manager · ED'A HOLDING</span>
-          <span>Palais · Villas · Appartements premium</span>
+          <span>Business Manager · ed'a holding</span>
+          <span>Palais · Villas · Appartements</span>
           <span>+3 ans en location courte durée</span>
           <span>Stratégie tarifs & revenue management</span>
         </div>
 
-        <div class="hero-actions-main">
+        <div class="hero-actions">
           <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
             Planifier un appel
           </button>
@@ -919,128 +982,163 @@
       </div>
 
       <aside class="hero-right">
-        <!-- Remplace par une vraie photo de villa ou de toi -->
-        <img src="images/villa-  " alt="Villa haut de gamme à Marrakech" />
-        <div class="hero-right-content">
-          <div class="hero-tagline">PORTFOLIO HÉBERGEMENTS</div>
-          <div class="hero-highlight">
-            Palais privés, villas avec piscine & appartements urbains haut de gamme.
+        <div class="hero-right-visual">
+          <!-- Remplace par une vraie image de villa / palais -->
+          <img src="images/villa-hero.jpg" alt="Villa haut de gamme à Marrakech" />
+          <div class="hero-right-overlay"></div>
+          <div class="hero-right-caption">
+            <div>
+              <strong>Portefeuille multi-villes</strong>
+              <span>Marrakech · Rabat · Casablanca</span>
+            </div>
+            <div>
+              <strong>Hébergements premium</strong>
+              <span>Palais, villas & appartements</span>
+            </div>
           </div>
-          <div class="hero-mini">
-            Optimisation de l’occupation, stratégie prix dynamique et expérience voyageur premium.
+        </div>
+
+        <div class="hero-right-stats">
+          <div class="hero-right-stats-header">
+            <h2>INDICATEURS CLÉS</h2>
+            <span style="font-size:0.8rem;color:#9ca3af;">Orientation performance & expérience client</span>
           </div>
-          <div class="hero-badges">
-            <span>Marrakech</span>
-            <span>Rabat</span>
-            <span>Casablanca</span>
-            <span>Airbnb · Booking</span>
+          <div class="hero-kpis">
+            <div class="kpi">
+              <div class="kpi-value">+80%</div>
+              <div class="kpi-label">Taux d’occupation moyen sur les biens gérés</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-value">3+</div>
+              <div class="kpi-label">Années en location courte durée, terrain & stratégie</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-value">3</div>
+              <div class="kpi-label">Villes principales : Marrakech, Rabat & Casablanca</div>
+            </div>
           </div>
         </div>
       </aside>
     </section>
 
-    <!-- HEBERGEMENTS / SLIDER -->
+    <!-- HEBERGEMENTS -->
     <section id="hebergements">
       <div class="section-header">
         <h2 class="section-title">HÉBERGEMENTS GÉRÉS</h2>
         <p class="section-subtitle">
-          Une sélection de biens représentatifs : palais, villas et appartements
-          dont je pilote la stratégie tarifaire, le remplissage et l’expérience client.
+          Palais, villas et appartements représentatifs de mon portefeuille :
+          optimisation du remplissage, des tarifs et de l’expérience voyageur.
         </p>
       </div>
       <div class="section-divider"></div>
 
-      <div class="properties-wrapper">
-        <div class="properties-top">
+      <div class="properties-shell">
+        <div class="properties-header">
           <div>
-            <strong>Portefeuille multi-villes</strong><br/>
-            <span>Biens répartis sur Marrakech, Rabat & Casablanca</span>
-          </div>
-          <div class="slider-controls-prop">
-            <button class="btn-circle" id="prop-prev" aria-label="Précédent">‹</button>
-            <button class="btn-circle" id="prop-next" aria-label="Suivant">›</button>
+            <strong>Sélection de biens</strong><br>
+            <span>Extraits d’un portefeuille multi-villes · chiffres indicatifs</span>
           </div>
         </div>
 
-        <div class="slider-properties">
-          <div class="slider-track" id="properties-track">
-            <!-- Slide 1 -->
-            <article class="property-card">
-              <div class="property-image">
-                <img src="C2.jpeg"Villa avec piscine à Marrakech" />
-                <div class="property-badge">Villa · Marrakech</div>
-              </div>
-              <div class="property-body">
-                <div class="property-title">Villa Atlas · Piscine & jardin</div>
-                <div class="property-location">Marrakech · Quartier résidentiel</div>
-                <div class="property-meta">
-                  <span>Remplissage moyen : <strong>+82%</strong></span>
-                  <span>Capacité : 8 pers.</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Slide 2 -->
-            <article class="property-card">
-              <div class="property-image">
-                <img src="c1.jpg" alt="Palais de prestige à Marrakech" />
-                <div class="property-badge">Palais · Marrakech</div>
-              </div>
-              <div class="property-body">
-                <div class="property-title">Palais Medina · Luxe & événements</div>
-                <div class="property-location">Marrakech · Médina</div>
-                <div class="property-meta">
-                  <span>Segmentation : <strong>VIP & événements</strong></span>
-                  <span>+ Revenus / nuit optimisés</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Slide 3 -->
-            <article class="property-card">
-              <div class="property-image">
-                <img src="App.jpeg" alt="Appartement moderne à Casablanca" />
-                <div class="property-badge">Appartement · Casablanca</div>
-              </div>
-              <div class="property-body">
-                <div class="property-title">Appartement Skyline</div>
-                <div class="property-location">Casablanca · Centre-ville</div>
-                <div class="property-meta">
-                  <span>Business & city break</span>
-                  <span>Taux récurrent : <strong>+75%</strong></span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Slide 4 -->
-            <article class="property-card">
-              <div class="property-image">
-                <img src="images/appartement-2.jpg" alt="Appartement premium à Rabat" />
-                <div class="property-badge">Appartement · Rabat</div>
-              </div>
-              <div class="property-body">
-                <div class="property-title">Résidence Ambassador</div>
-                <div class="property-location">Rabat · Quartier embassades</div>
-                <div class="property-meta">
-                  <span>Clientèle : <strong>corporate</strong></span>
-                  <span>Optimisation prix dynamique</span>
-                </div>
-              </div>
-            </article>
+        <div class="slider-properties" aria-label="Galerie des hébergements gérés">
+          <!-- contrôles -->
+          <div class="prop-controls">
+            <button class="btn-circle" id="prop-prev" aria-label="Hébergement précédent">‹</button>
+            <button class="btn-circle" id="prop-next" aria-label="Hébergement suivant">›</button>
           </div>
+
+          <!-- SLIDE 1 -->
+          <article class="prop-slide active">
+            <div class="prop-image">
+              <img src="images/villa-1.jpg" alt="Villa avec piscine à Marrakech" />
+              <div class="prop-badge">Villa · Marrakech</div>
+            </div>
+            <div class="prop-body">
+              <div class="prop-title">Villa Atlas · Piscine & jardin</div>
+              <div class="prop-location">Marrakech · Quartier résidentiel</div>
+              <div class="prop-meta">
+                <span>Remplissage moyen : <strong>~82%</strong></span>
+                <span>Capacité : <strong>8 personnes</strong></span>
+              </div>
+              <div class="prop-note">
+                Positionnement haut de gamme pour familles & groupes, stratégie
+                tarifaire ajustée selon saisonnalité et événements locaux.
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 2 -->
+          <article class="prop-slide">
+            <div class="prop-image">
+              <img src="images/palais-1.jpg" alt="Palais de prestige à Marrakech" />
+              <div class="prop-badge">Palais · Marrakech</div>
+            </div>
+            <div class="prop-body">
+              <div class="prop-title">Palais Medina · Luxe & événements</div>
+              <div class="prop-location">Marrakech · Médina</div>
+              <div class="prop-meta">
+                <span>Clientèle : <strong>VIP & événements</strong></span>
+                <span>Revenus / nuit : <strong>optimisés</strong></span>
+              </div>
+              <div class="prop-note">
+                Segmentation fine (événements privés, shootings, séjours luxe),
+                ajustement des prix en fonction de la demande et de la durée.
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 3 -->
+          <article class="prop-slide">
+            <div class="prop-image">
+              <img src="images/appartement-1.jpg" alt="Appartement moderne à Casablanca" />
+              <div class="prop-badge">Appartement · Casablanca</div>
+            </div>
+            <div class="prop-body">
+              <div class="prop-title">Appartement Skyline · Vue ville</div>
+              <div class="prop-location">Casablanca · Centre-ville</div>
+              <div class="prop-meta">
+                <span>Public : <strong>business & city break</strong></span>
+                <span>Taux occupation : <strong>~75%</strong></span>
+              </div>
+              <div class="prop-note">
+                Optimisation des séjours business courts, automatisation des arrivées
+                et reporting propriétaire centré revenus / durée moyenne.
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 4 -->
+          <article class="prop-slide">
+            <div class="prop-image">
+              <img src="images/appartement-2.jpg" alt="Appartement premium à Rabat" />
+              <div class="prop-badge">Appartement · Rabat</div>
+            </div>
+            <div class="prop-body">
+              <div class="prop-title">Résidence Ambassador</div>
+              <div class="prop-location">Rabat · Quartier des ambassades</div>
+              <div class="prop-meta">
+                <span>Clientèle : <strong>corporate & diplomatique</strong></span>
+                <span>Tarifs : <strong>dynamique</strong></span>
+              </div>
+              <div class="prop-note">
+                Stratégie orientée long séjour & corporate, intégration des
+                contraintes de sécurité, discrétion et services annexes.
+              </div>
+            </div>
+          </article>
         </div>
 
-        <div class="slider-dots" id="prop-dots"></div>
+        <div class="prop-dots" id="prop-dots"></div>
       </div>
     </section>
 
     <!-- EXPERIENCES -->
     <section id="experience">
       <div class="section-header">
-        <h2 class="section-title">EXPÉRIENCES & RÔLES</h2>
+        <h2 class="section-title">EXPÉRIENCES</h2>
         <p class="section-subtitle">
-          Un profil hybride qui combine compréhension business,
-          gestion opérationnelle des hébergements et développement d’outils sur mesure.
+          Un profil hybride : gestion d’hébergements, stratégie business
+          et développement d’outils web sur mesure.
         </p>
       </div>
       <div class="section-divider"></div>
@@ -1048,17 +1146,17 @@
       <div class="exp-grid">
         <article class="exp-card">
           <div class="exp-role">Business Manager & Price Manager</div>
-          <div class="exp-company">ED'A HOLDING · Palais, villas & appartements</div>
+          <div class="exp-company">ed'a holding · Portefeuille haut de gamme</div>
           <div class="exp-period">Marrakech · Rabat · Casablanca</div>
           <p>
-            Pilotage d’un portefeuille de biens haut de gamme : stratégie prix,
-            remplissage, coordination des équipes terrain, suivi des KPI et amélioration
-            continue de l’expérience voyageur.
+            Pilotage d’un portefeuille de palais, villas & appartements :
+            stratégie prix, optimisation de l’occupation, coordination des
+            équipes terrain, suivi des KPI et amélioration de l’expérience voyageur.
           </p>
           <div class="exp-tags">
-            <span>Pricing & revenue management</span>
+            <span>Revenue management</span>
+            <span>Stratégie tarifs</span>
             <span>KPI & reporting</span>
-            <span>Expérience client</span>
           </div>
         </article>
 
@@ -1067,14 +1165,14 @@
           <div class="exp-company">Projets location courte durée</div>
           <div class="exp-period">+3 ans d’expérience terrain</div>
           <p>
-            Gestion des annonces (Airbnb / Booking), communications voyageurs,
-            organisation des ménages & maintenance, optimisation photos & descriptions,
+            Gestion des annonces (Airbnb / Booking), communication voyageurs,
+            organisation des check-in / check-out, suivi ménage & maintenance,
             gestion des avis et de la réputation en ligne.
           </p>
           <div class="exp-tags">
             <span>Airbnb · Booking</span>
             <span>Process opérationnels</span>
-            <span>Relation voyageurs</span>
+            <span>Expérience client</span>
           </div>
         </article>
 
@@ -1083,13 +1181,13 @@
           <div class="exp-company">Projets web & SaaS</div>
           <div class="exp-period">React · Next.js · Laravel · Symfony</div>
           <p>
-            Conception d’applications web, back-offices propriétaires, dashboards,
-            intégrations APIs (Airbnb/Booking), automatisations et systèmes
-            de réservation pour réduire la charge opérationnelle.
+            Conception de back-offices propriétaires, dashboards revenus,
+            intégrations APIs (Airbnb / Booking), systèmes de réservation
+            et automatisations pour réduire la charge opérationnelle.
           </p>
           <div class="exp-tags">
-            <span>APIs & intégrations</span>
             <span>Outils internes</span>
+            <span>APIs & intégrations</span>
             <span>Dashboards performance</span>
           </div>
         </article>
@@ -1099,10 +1197,10 @@
     <!-- SKILLS -->
     <section id="skills">
       <div class="section-header">
-        <h2 class="section-title">COMPÉTENCES & STACK</h2>
+        <h2 class="section-title">COMPÉTENCES</h2>
         <p class="section-subtitle">
-          Une stack orientée produits web, automatisation et reporting,
-          au service de la performance de votre portefeuille de biens.
+          Une stack technique alignée avec les besoins métier
+          de la location courte durée et des propriétaires.
         </p>
       </div>
       <div class="section-divider"></div>
@@ -1116,7 +1214,7 @@
             <span class="chip">TypeScript</span>
             <span class="chip">React</span>
             <span class="chip">Next.js</span>
-            <span class="chip">Tailwind</span>
+            <span class="chip">Tailwind CSS</span>
           </div>
         </div>
 
@@ -1145,20 +1243,20 @@
         <div class="skill-block">
           <div class="skill-block-title">Hébergement & métier</div>
           <div class="chip-group">
-            <span class="chip">Airbnb / Booking</span>
             <span class="chip">Location courte durée</span>
-            <span class="chip">Pricing dynamique</span>
+            <span class="chip">Airbnb / Booking</span>
             <span class="chip">Segmentation client</span>
+            <span class="chip">Optimisation annonces</span>
           </div>
         </div>
 
         <div class="skill-block">
-          <div class="skill-block-title">Outils internes & automatisation</div>
+          <div class="skill-block-title">Outils & automatisation</div>
           <div class="chip-group">
             <span class="chip">Dashboards revenus</span>
-            <span class="chip">Back-office propriétaires</span>
+            <span class="chip">Back-offices</span>
             <span class="chip">Cron & jobs planifiés</span>
-            <span class="chip">Webhooks</span>
+            <span class="chip">Webhooks & intégrations</span>
           </div>
         </div>
 
@@ -1177,10 +1275,10 @@
     <!-- PROJECTS -->
     <section id="projects">
       <div class="section-header">
-        <h2 class="section-title">PROJETS TECH</h2>
+        <h2 class="section-title">PROJETS</h2>
         <p class="section-subtitle">
-          Des outils conçus pour les besoins du terrain : propriétaires, équipes internes
-          et performance des hébergements.
+          Des outils pensés pour les propriétaires, les équipes internes
+          et la performance des hébergements.
         </p>
       </div>
       <div class="section-divider"></div>
@@ -1189,9 +1287,9 @@
         <article class="project-card">
           <div class="project-title">Plateforme de gestion d’hébergements</div>
           <p>
-            Application web pour piloter réservations, calendriers, tarifs,
-            performance par bien et par ville, avec espace propriétaire
-            et reporting revenus.
+            Application web pour centraliser réservations, calendriers, tarifs,
+            comptes propriétaires et reporting revenus, sur plusieurs villes
+            et canaux (Airbnb, Booking, direct).
           </p>
           <div class="project-meta">
             <span>React · Laravel · Oracle</span>
@@ -1202,9 +1300,9 @@
         <article class="project-card">
           <div class="project-title">Intégration Airbnb / Booking</div>
           <p>
-            Synchronisation des disponibilités et des réservations,
-            centralisation des demandes, réduction du risque de doublons
-            et automatisation des messages voyageurs.
+            Synchronisation des disponibilités & réservations, réduction des
+            doubles bookings, centralisation des messages et automatisation
+            de certaines réponses voyageurs.
           </p>
           <div class="project-meta">
             <span>Laravel · APIs · Cron</span>
@@ -1215,9 +1313,9 @@
         <article class="project-card">
           <div class="project-title">Dashboard propriétaire</div>
           <p>
-            Interface dédiée aux propriétaires : revenus, taux d’occupation,
-            performances par plateforme (Airbnb/Booking), segmentation
-            par type de bien et par ville.
+            Interface sécurisée pour suivre revenus, taux d’occupation,
+            performance par ville et par type de bien, avec export
+            des rapports et filtrage avancé.
           </p>
           <div class="project-meta">
             <span>Next.js · Auth · Charts</span>
@@ -1230,17 +1328,17 @@
     <!-- CONTACT -->
     <section id="contact" class="contact">
       <div>
-        <h2>Parlons de votre portefeuille d’hébergements</h2>
+        <h2>Parlons de vos hébergements & outils</h2>
         <p>
-          Vous possédez des palais, villas ou appartements à fort potentiel
-          sur Marrakech, Rabat ou Casablanca ? Vous souhaitez optimiser
-          vos revenus, automatiser vos flux ou développer des outils internes ?
-          Je serais ravi d’en parler avec vous.
+          Vous possédez un portefeuille de biens (palais, villas, appartements)
+          ou préparez un projet autour de la location courte durée ?
+          Discutons de vos enjeux (revenus, automatisation, reporting, outils web)
+          et voyons ce que nous pouvons construire ensemble.
         </p>
         <div class="contact-info">
           <div><span>Email :</span> <a href="mailto:houssamazmour@gmail.com">houssamazmour@gmail.com</a></div>
-          <div><span>LinkedIn :</span> <a href="https://www.linkedin.com" target="_blank" rel="noopener">linkedin.com/in/houssam-azmour</a></div>
-          <div><span>GitHub :</span> <a href="https://www.github.com" target="_blank" rel="noopener">github.com/houssam-azmour</a></div>
+          <div><span>LinkedIn :</span> linkedin.com/in/houssam-azmour (à adapter)</div>
+          <div><span>GitHub :</span> github.com/houssam-azmour (à adapter)</div>
         </div>
       </div>
 
@@ -1296,63 +1394,67 @@
       });
     }
 
-    // Slider propriétés
-    const track = document.getElementById('properties-track');
-    const prevBtn = document.getElementById('prop-prev');
-    const nextBtn = document.getElementById('prop-next');
-    const slides = Array.from(track.children);
-    const dotsContainer = document.getElementById('prop-dots');
+    // Slider hébergements
+    const propSlides = Array.from(document.querySelectorAll('.prop-slide'));
+    const propDotsContainer = document.getElementById('prop-dots');
+    const propPrev = document.getElementById('prop-prev');
+    const propNext = document.getElementById('prop-next');
 
-    let currentIndex = 0;
-    let propertyWidth = slides[0].getBoundingClientRect().width + 16; // carte + marge
+    let propIndex = 0;
+    let propInterval;
 
-    function updateSlider() {
-      const offset = -currentIndex * propertyWidth;
-      track.style.transform = `translateX(${offset}px)`;
-
-      const dots = dotsContainer.querySelectorAll('.slider-dot');
-      dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
-    }
-
-    // Créer les dots
-    slides.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', () => {
-        currentIndex = i;
-        updateSlider();
+    function goToProp(index) {
+      propSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
       });
-      dotsContainer.appendChild(dot);
+      const dots = propDotsContainer.querySelectorAll('.prop-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      propIndex = index;
+    }
+
+    function nextProp() {
+      const next = (propIndex + 1) % propSlides.length;
+      goToProp(next);
+    }
+
+    function prevProp() {
+      const prev = (propIndex - 1 + propSlides.length) % propSlides.length;
+      goToProp(prev);
+    }
+
+    // dots
+    propSlides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'prop-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => {
+        goToProp(i);
+        resetPropInterval();
+      });
+      propDotsContainer.appendChild(dot);
     });
 
-    function nextProperty() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateSlider();
-    }
-
-    function prevProperty() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateSlider();
-    }
-
-    nextBtn.addEventListener('click', nextProperty);
-    prevBtn.addEventListener('click', prevProperty);
-
-    window.addEventListener('resize', () => {
-      propertyWidth = slides[0].getBoundingClientRect().width + 16;
-      updateSlider();
+    propNext.addEventListener('click', () => {
+      nextProp();
+      resetPropInterval();
     });
 
-    let sliderInterval = setInterval(nextProperty, 6000);
+    propPrev.addEventListener('click', () => {
+      prevProp();
+      resetPropInterval();
+    });
 
-    function resetInterval() {
-      clearInterval(sliderInterval);
-      sliderInterval = setInterval(nextProperty, 6000);
+    function startPropInterval() {
+      propInterval = setInterval(nextProp, 6000);
     }
 
-    nextBtn.addEventListener('click', resetInterval);
-    prevBtn.addEventListener('click', resetInterval);
-    dotsContainer.addEventListener('click', resetInterval);
+    function resetPropInterval() {
+      clearInterval(propInterval);
+      startPropInterval();
+    }
+
+    startPropInterval();
 
     // Formulaire
     function handleSubmit(e) {

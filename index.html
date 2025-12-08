@@ -1372,7 +1372,7 @@
         const isOpen = navToggle.classList.toggle('open');
         navMobile.classList.toggle('open');
         navToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-      });
+      }); 
 
       mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
